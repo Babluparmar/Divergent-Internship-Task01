@@ -4,8 +4,8 @@ import { Link, useNavigate } from "react-router-dom";
 
 
 const Login = () => {
-  const [usererr, setUsererr] = useState(false)
-  const [passwordErr, setPasswordErr] = useState(false)
+  // const [usererr, setUsererr] = useState(false)
+  // const [passwordErr, setPasswordErr] = useState(false)
   const [user, setUser] = useState("")
   const [password, setPasssword] = useState("")
   const [login, setLogin] = useState(false);
@@ -23,27 +23,6 @@ const Login = () => {
     e.preventDefault();
   }
 
-  const userHandler = (e) => {
-    const userId = e.target.value;
-    // if (userId.length >= 5) {
-    //   setUsererr(false);
-    // }
-    // else {
-    //   setUsererr(true);
-    // }
-    setUser(userId);
-  }
-
-  const passwordHandler = (e) => {
-    const pass = e.target.value;
-    // if (pass.length >= 5) {
-    //   setPasswordErr(false);
-    // }
-    // else {
-    //   setPasswordErr(true);
-    // }
-    setPasssword(pass)
-  }
 
   return (
     <div className="w-screen flex items-center justify-center h-screen">
@@ -54,8 +33,8 @@ const Login = () => {
         </div>
         <form onSubmit={fromHandler}>
           <div className='flex flex-col gap-5 mt-4'>
-            <input type="gmail" placeholder='User_ID' className='inputbox' name='gmail' onChange={userHandler} />
-            <input type="password" placeholder='Password' className='inputbox' name='pass' onChange={passwordHandler} />
+            <input type="gmail" placeholder='User_ID' className='inputbox' name='gmail' onChange={(e)=>{setUser(e.target.value)}} />
+            <input type="password" placeholder='Password' className='inputbox' name='pass' onChange={(e)=>{setPasssword(e.target.value)}} />
             </div>
           <p className='mt-1 mb-5 text-gray-500 text-sm'>Forgot Password?</p>
           <button className='inputbox bg-blue-700 text-white hover:bg-blue-800' >
